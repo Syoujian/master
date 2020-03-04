@@ -1,22 +1,46 @@
+/*
+ * @说明:
+ * @版本: 2.0
+ * @姓名: Ashely
+ * @Date: 2020-03-04 11:08:42
+ * @最后编辑: Ashely
+ * @LastEditTime: 2020-03-04 17:17:43
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Main from '@/views/Main'
+import Equip from '@/views/Equip'
+import Digital from '@/views/Digital'
+import Furniture from '@/views/Furniture'
+import Makeup from '@/views/Makeup'
+import Seckill from '@/views/Seckill'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/index',
+    component: Main
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/equip',
+    component: Equip
+  },
+  {
+    path: '/digital',
+    component: Digital
+  },
+  {
+    path: '/furniture',
+    component: Furniture
+  },
+  {
+    path: '/makeup',
+    component: Makeup
+  },
+  {
+    path: '/seckill',
+    component: Seckill
   }
 ]
 
