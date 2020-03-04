@@ -8,6 +8,6 @@
  -->
 <template>
     <div>
-       酷装备
+       wzq负责
     </div>
 </template>
