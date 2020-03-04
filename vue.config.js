@@ -4,7 +4,7 @@
  * @姓名: Youmi
  * @Date: 2020-02-21 15:23:45
  * @最后编辑: Youmi
- * @LastEditTime: 2020-02-22 21:59:40
+ * @LastEditTime: 2020-03-04 22:04:15
  */
 module.exports = {
   devServer: {
@@ -12,7 +12,7 @@ module.exports = {
     proxy: {
       // 请求哪个接口的时候才会被服务代理 target里为原网站地址
       '/xzw': {
-        target: 'http://m.maoyan.com',
+        target: 'http://m.d1.cn',
         changeOrigin: true,
         pathRewrite: {
           '^/xzw': ''

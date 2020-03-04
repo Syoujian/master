@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 15:07:54
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-04 17:42:44
+ * @LastEditTime: 2020-03-05 02:08:38
  -->
 <template>
   <div class="count">
@@ -28,6 +28,8 @@
     margin-top: 10px;
   width: 100%;
   display: flex;
+  flex: 1;
+  justify-content: space-around;
   .logo {
     a {
       img {
@@ -40,6 +42,7 @@
       position: relative;
       margin-left: 5px;
       box-sizing: border-box;
+      margin-top: 2px;
       .text{
           height: 25px;
           width: 205px;
