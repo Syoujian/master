@@ -4,13 +4,13 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 01:52:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 02:29:13
+ * @LastEditTime: 2020-03-05 11:33:06
  -->
 <template>
 <!-- 页脚组件 -->
     <div>
         <div class="top">
-            <router-link tag="span" to="" >请登录</router-link>
+            <router-link tag="span" to="/login" >请登录</router-link>
             <router-link tag="span" to="" >注册</router-link>
             <span @click="goTop()">回到顶部</span>
         </div>

@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 17:02:19
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 01:54:27
+ * @LastEditTime: 2020-03-05 15:30:29
  -->
 <template>
     <div class="outermost">
@@ -16,7 +16,6 @@
       <maplist></maplist>
       <creativity :mylist="list"></creativity>
       <theme :mylist="list"></theme>
-      <myfooter></myfooter>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -40,7 +39,7 @@ import axios from 'axios'
 import maplist from '@/views/main/MapList'
 import theme from '@/views/main/CreativityTheme'
 import creativity from '@/views/main/CreativityList'
-import myfooter from '@/views/main/Footer'
+import { mapMutations } from 'vuex'
 import { Swipe, SwipeItem } from 'vant'
 Vue.use(Swipe)
 Vue.use(SwipeItem)
@@ -55,12 +54,15 @@ export default {
       console.log(res.data)
       this.list = res.data
     })
+    this.show()
   },
   components: {
     maplist,
     theme,
-    creativity,
-    myfooter
+    creativity
+  },
+  methods: {
+    ...mapMutations('myshow', ['show'])
   }
 }
 </script>

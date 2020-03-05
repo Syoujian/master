@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 11:08:42
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-04 17:17:43
+ * @LastEditTime: 2020-03-05 10:43:49
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -14,7 +14,8 @@ import Digital from '@/views/Digital'
 import Furniture from '@/views/Furniture'
 import Makeup from '@/views/Makeup'
 import Seckill from '@/views/Seckill'
-
+import Login from '@/views/Login'
+import Register from '@/views/Register'
 Vue.use(VueRouter)
 
 const routes = [
@@ -41,6 +42,14 @@ const routes = [
   {
     path: '/seckill',
     component: Seckill
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/register',
+    component: Register
   }
 ]
 
