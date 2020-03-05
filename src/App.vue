@@ -1,11 +1,3 @@
-<!--
- * @说明:
- * @版本: 2.0
- * @姓名: Ashely
- * @Date: 2020-03-04 11:08:42
- * @最后编辑: Ashely
- * @LastEditTime: 2020-03-04 17:46:58
- -->
 <template>
   <div>
     <myheader></myheader>

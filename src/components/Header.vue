@@ -1,11 +1,3 @@
-<!--
- * @说明:
- * @版本: 2.0
- * @姓名: Ashely
- * @Date: 2020-03-04 15:07:54
- * @最后编辑: Ashely
- * @LastEditTime: 2020-03-04 17:42:44
- -->
 <template>
   <div class="count">
     <div class="logo">
@@ -28,10 +20,12 @@
     margin-top: 10px;
   width: 100%;
   display: flex;
+  flex: 1;
+  justify-content: space-around;
   .logo {
     a {
       img {
-        width: 88px;
+        width: 100%;
         height: 35px;
       }
     }

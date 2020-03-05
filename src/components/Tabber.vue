@@ -1,11 +1,3 @@
-<!--
- * @说明:
- * @版本: 2.0
- * @姓名: Ashely
- * @Date: 2020-03-04 15:09:28
- * @最后编辑: Ashely
- * @LastEditTime: 2020-03-04 17:18:00
- -->
 <template>
     <div>
         <ul>
@@ -18,6 +10,12 @@
         </ul>
     </div>
 </template>
+<script>
+
+export default {
+
+}
+</script>
 <style scoped lang="scss">
 ul{
     display: flex;
