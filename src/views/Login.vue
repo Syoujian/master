@@ -4,22 +4,11 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:39:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 17:01:32
+ * @LastEditTime: 2020-03-05 22:28:08
  -->
 <template>
   <div>
-    <div class="header">
-      <i class="iconfont icon-back" @click="Back()"></i>
-      <div class="center">
-        <i class="iconfont icon-smile"></i>
-        <span>登录</span>
-      </div>
-      <div class="right">
-        <i class="iconfont icon-store" @click="goMain()"></i>
-        <i class="iconfont icon-account" @click="goMine()"></i>
-        <i class="iconfont icon-cart" @click="goShoppingcar()"></i>
-      </div>
-    </div>
+    <loginheader titleName="登录"></loginheader>
     <van-form @submit="onSubmit" class="form">
       <van-field
         class="username"
@@ -47,7 +36,7 @@
                 <i class="iconfont icon-mobilephone"></i>
                 <p>手机注册</p>
             </li>
-            <li  @click="goRegister(-1)">
+            <li  @click="goRegister(0)">
                 <i class="iconfont icon-email"></i>
                 <p>邮箱注册</p>
             </li>
@@ -66,9 +55,10 @@
   </div>
 </template>
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 import Vue from 'vue'
 import { Form, Field, Button } from 'vant'
+import loginheader from '@/components/LoginHeader'
 Vue.use(Form).use(Field).use(Button)
 export default {
   data () {
@@ -85,55 +75,31 @@ export default {
     onSubmit (values) {
       console.log('submit', values)
     },
-    goMain () {
-      this.$router.push('/main')
-    },
-    goMine () {
-      console.log('去我的页面')
-    },
-    goShoppingcar () {
-      console.log('去购物车页面')
-    },
-    Back () {
-      this.$router.back()
-    },
+
     findPwd () {
       console.log('找回密码')
     },
     goRegister (data) {
-      this.$router.push('/register')
+      this.$router.push({
+        path: '/register',
+        query: {
+          mysteta: data
+        }
+      })
     }
   },
   computed: {
-    ...mapState('myshow', ['isshow'])
+
   },
   deactivated () {
     this.show()
+  },
+  components: {
+    loginheader
   }
 }
 </script>
 <style lang="scss" scoped>
-.header {
-  padding-right: 3%;
-  display: flex;
-  justify-content: space-between;
-  font: 20px/30px "";
-  background: rgb(238, 237, 237);
-  i {
-    color: rgb(143, 142, 142);
-    font-size: 20px;
-  }
-  .center {
-    box-sizing: border-box;
-    margin-left: 10%;
-  }
-  .right {
-    box-sizing: border-box;
-    i {
-      margin-right: 5%;
-    }
-  }
-}
 .form{
     padding: 30px 20px;
     .username{
@@ -176,7 +142,7 @@ export default {
             color: #000;
         }
         img{
-
+            margin-left: 5%;
         }
     }
 }
