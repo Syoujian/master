@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:40:01
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-06 03:58:00
+ * @LastEditTime: 2020-03-06 13:17:17
  -->
 <template>
     <div>
@@ -28,16 +28,17 @@
 import loginheader from '@/components/LoginHeader'
 import myphone from '@/views/register/Phone'
 import myemail from '@/views/register/Email'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 export default {
   data () {
     return {
-      isCreate: ''
     }
   },
   mounted () {
-    this.isCreate = this.$route.query.mysteta
+    // this.isCreate =Boolean(this.$route.query.mysteta);
     this.hide()
+    // console.log(typeof this.isCreate);
+    // console.log(this.isCreate);
   },
   components: {
     loginheader,
@@ -46,6 +47,9 @@ export default {
   },
   methods: {
     ...mapMutations('myshow', ['show', 'hide'])
+  },
+  computed: {
+    ...mapState('myCreate', ['isCreate'])
   },
   deactivated () {
     this.show()

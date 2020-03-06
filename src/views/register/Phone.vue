@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-05 22:32:08
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-06 03:50:18
+ * @LastEditTime: 2020-03-06 11:28:09
  -->
 <template>
   <div class="count">
@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     checkNumber () {
-      console.log(/^1[3456789]\d{9}$/.test(this.phone))
+    //   console.log(/^1[3456789]\d{9}$/.test(this.phone))
       if (this.phone === '') {
         return true
       } else {

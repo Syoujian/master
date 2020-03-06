@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:39:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 22:28:08
+ * @LastEditTime: 2020-03-06 13:11:12
  -->
 <template>
   <div>
@@ -32,11 +32,11 @@
     <div class="register">
         <ul>
             <!-- goRegister 可以写成一个组件传入不同的参数 -->
-            <li @click="goRegister(1)">
+            <li @click="goRegister(state)">
                 <i class="iconfont icon-mobilephone"></i>
                 <p>手机注册</p>
             </li>
-            <li  @click="goRegister(0)">
+            <li  @click="goRegister(!state)">
                 <i class="iconfont icon-email"></i>
                 <p>邮箱注册</p>
             </li>
@@ -64,7 +64,8 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      state: true
     }
   },
   mounted () {
@@ -72,6 +73,7 @@ export default {
   },
   methods: {
     ...mapMutations('myshow', ['show', 'hide']),
+    ...mapMutations('myCreate', ['showCreate', 'hideCreate']),
     onSubmit (values) {
       console.log('submit', values)
     },
@@ -80,12 +82,13 @@ export default {
       console.log('找回密码')
     },
     goRegister (data) {
-      this.$router.push({
-        path: '/register',
-        query: {
-          mysteta: data
-        }
-      })
+      // console.log(data);
+      if (data) {
+        this.showCreate()
+      } else {
+        this.hideCreate()
+      }
+      this.$router.push('/register')
     }
   },
   computed: {
