@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-06 01:02:40
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-06 04:10:15
+ * @LastEditTime: 2020-03-07 01:59:29
  -->
 <template>
 <!-- 验证码组件 -->
@@ -59,6 +59,7 @@ export default {
       } else {
         this.isErr = false
       }
+      this.$emit('xzw', this.isErr)
     }
 
   }

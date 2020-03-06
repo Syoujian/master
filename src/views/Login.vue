@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:39:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-06 13:11:12
+ * @LastEditTime: 2020-03-07 00:13:27
  -->
 <template>
   <div>
@@ -42,7 +42,7 @@
             </li>
             <li  @click="findPwd()">
                 <i class="iconfont icon-service"></i>
-                <p>找回密码</p>
+                <p>修改密码</p>
             </li>
         </ul>
     </div>
@@ -79,7 +79,8 @@ export default {
     },
 
     findPwd () {
-      console.log('找回密码')
+      // console.log('找回密码')
+      this.$router.push('/findpwd')
     },
     goRegister (data) {
       // console.log(data);

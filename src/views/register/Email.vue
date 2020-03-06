@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-05 22:32:47
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-06 11:32:20
+ * @LastEditTime: 2020-03-07 02:07:48
  -->
 <!--
  * @说明:
@@ -34,19 +34,21 @@
       <p class="pwderr" v-show="!checkPassword">两次密码不相同请重新输入</p>
       <p class="pwdErr"></p>
     </div>
-    <identify class="identify"></identify>
-    <button class="btn" @click="subData()">提交</button>
+    <identify class="identify" @xzw="getSteta"></identify>
+    <button :class="!checkPassword||!checkEmail||state?'btnerr':'btn'" @click="subData()" :disabled="!checkPassword||!checkEmail||state">提交</button>
   </div>
 </template>
 <script>
 import identify from '@/util/Identify'
+import axios from 'axios'
 export default {
   data () {
     return {
       // pattern: /^1[3456789]\d{9}$/,
       email: '',
       pwd: '',
-      checkPwd: ''
+      checkPwd: '',
+      state: ''
     }
   },
   computed: {
@@ -75,7 +77,16 @@ export default {
   },
   methods: {
     subData () {
+      console.log('/myapi?type=register&username=this.email&pwd=pwd')
+
       console.log('提交数据')
+      axios.get('/myapi?type=register&username=this.email&pwd=pwd').then(res => {
+        console.log(1)
+        console.log(res.data)
+      })
+    },
+    getSteta (data) {
+      this.state = data
     }
   }
 }
@@ -104,6 +115,7 @@ export default {
       left: 0;
       top: 36%;
     }
+
   }
 
   .identify {
@@ -113,6 +125,15 @@ export default {
     padding: 8px 20px;
     color: white;
     background: rgb(240, 66, 78);
+    border: none;
+    border-radius: 5px;
+    margin-top: 7%;
+    width: 100%;
+  }
+  .btnerr{
+    padding: 8px 20px;
+    color: white;
+    background: rgb(148, 147, 147);
     border: none;
     border-radius: 5px;
     margin-top: 7%;

@@ -4,7 +4,7 @@
  * @姓名: Youmi
  * @Date: 2020-02-21 15:23:45
  * @最后编辑: Youmi
- * @LastEditTime: 2020-03-04 22:04:15
+ * @LastEditTime: 2020-03-06 21:47:55
  */
 module.exports = {
   devServer: {
@@ -17,6 +17,10 @@ module.exports = {
         pathRewrite: {
           '^/xzw': ''
         }
+      },
+      '/myapi': {
+        target: 'http://localhost:8080',
+        changeOrigin: true
       }
     },
     overlay: {
