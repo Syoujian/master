@@ -4,9 +4,10 @@
  * @姓名: As hely
  * @Date: 2020-03-05 22:32:08
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-06 11:28:09
+ * @LastEditTime: 2020-03-07 19:18:58
  -->
 <template>
+<!-- 手机号注册组件 -->
   <div class="count">
     <div class="box">
       <input type="text" class="phone" v-model="phone" placeholder="输入手机号" />

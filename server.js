@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-07 12:46:29
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 18:49:31
+ * @LastEditTime: 2020-03-07 18:50:27
  */
 /*
  * @说明:
@@ -84,7 +84,7 @@ function dl (res, data) {
   let on = true
   for (var i = 0; i < userMag.length; i++) {
     const resMsg = {}
-    if (userMag[i].username === data.username) {
+    if (userMag[i].username =   == data.username) {
       on = false
       if (userMag[i].pwd === data.pwd) {
         resMsg.code = 1

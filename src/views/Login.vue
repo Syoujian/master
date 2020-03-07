@@ -4,9 +4,10 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:39:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 18:47:56
+ * @LastEditTime: 2020-03-07 19:20:29
  -->
 <template>
+<!-- 登录组件 -->
   <div>
     <loginheader titleName="登录"></loginheader>
     <van-form @submit="onSubmit" class="form">

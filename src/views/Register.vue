@@ -4,9 +4,10 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:40:01
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 00:07:24
+ * @LastEditTime: 2020-03-07 19:21:17
  -->
 <template>
+<!-- 注册公共组件 -->
     <div>
         <loginheader :titleName="isCreate?'手机注册':'邮箱注册'"></loginheader>
         <div class="count">

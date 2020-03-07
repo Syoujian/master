@@ -4,9 +4,10 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 17:02:19
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 15:30:29
+ * @LastEditTime: 2020-03-07 19:20:40
  -->
 <template>
+<!-- 主页组件 -->
     <div class="outermost">
         <van-swipe class="my-swipe count" :autoplay="3000" indicator-color="blue">
         <van-swipe-item v-for="(data,index) in list.lblist" :key="index" class="box">

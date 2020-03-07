@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-05 22:32:47
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 17:08:24
+ * @LastEditTime: 2020-03-07 19:19:10
  -->
 <!--
  * @说明:
@@ -15,6 +15,7 @@
  * @LastEditTime: 2020-03-06 03:50:18
  -->
 <template>
+<!-- 邮箱注册组件 -->
   <div class="count">
     <div class="box">
       <input type="text" class="email identical" v-model="email" placeholder="输入邮箱地址" />

@@ -4,10 +4,10 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 23:39:37
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 01:42:58
+ * @LastEditTime: 2020-03-07 19:19:57
  -->
 <template>
-<!-- 标题组件 -->
+<!-- 首页标题组件 -->
     <div>
         <h4>{{mytitle}}</h4>
     </div>
