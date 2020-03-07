@@ -6,6 +6,7 @@ import Digital from '@/views/Digital'
 import Furniture from '@/views/Furniture'
 import Makeup from '@/views/Makeup'
 import Seckill from '@/views/Seckill'
+import Search from '@/views/Search'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/seckill',
     component: Seckill
+  },
+  {
+    path: '/search',
+    component: Search
   }
 ]
 

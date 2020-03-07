@@ -1,14 +1,18 @@
 <template>
   <div>
-    <myheader></myheader>
-    <tabber></tabber>
+    <myheader v-show="isTabbarShow"></myheader>
+    <tabber v-show="isTabbarShow"></tabber>
     <router-view></router-view>
   </div>
 </template>
 <script>
 import myheader from '@/components/Header'
 import tabber from '@/components/Tabber'
+import { mapState } from 'vuex'
 export default {
+  computed: {
+    ...mapState('tabbar', ['isTabbarShow'])
+  },
   components: {
     myheader,
     tabber
