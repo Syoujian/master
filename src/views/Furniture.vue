@@ -35,26 +35,20 @@
             </ul>
         </div>
 
-<van-pagination
-  v-model="currentPage"
-  :page-count="12"
-  mode="simple"
-/>
+        <pageFen @changePage="handchange"></pageFen>
+
     </div>
 </template>
 
 <script>
-
+import pageFen from '../components/pageFen'
 import { mapState } from 'vuex'
 import Vue from 'vue'
-import { Pagination } from 'vant'
-
-Vue.use(Pagination)
 
 export default {
   data () {
     return {
-      currentPage: 1
+
     }
   },
   mounted () {
@@ -72,7 +66,13 @@ export default {
     },
     handback () {
       this.$store.dispatch('Furnituremodule/getlist', this.$store.state.Furnituremodule.nowrckcode[0])
+    },
+    handchange (currentPage) {
+      this.$store.dispatch('Furnituremodule/getlist3', currentPage)
     }
+  },
+  components: {
+    pageFen
   }
 }
 </script>
