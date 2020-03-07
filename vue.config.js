@@ -4,7 +4,7 @@
  * @姓名: Youmi
  * @Date: 2020-02-21 15:23:45
  * @最后编辑: Youmi
- * @LastEditTime: 2020-02-22 21:59:40
+ * @LastEditTime: 2020-03-07 13:13:27
  */
 module.exports = {
   devServer: {
@@ -16,6 +16,20 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           '^/wzq': ''
+        }
+      },
+      '/xzw': {
+        target: 'http://m.d1.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/xzw': ''
+        }
+      },
+      '/wxl': {
+        target: 'http://localhost:83',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/wxl': ''
         }
       }
     },

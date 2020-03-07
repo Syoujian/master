@@ -1,3 +1,11 @@
+/*
+ * @说明:
+ * @版本: 2.0
+ * @姓名: Ashely
+ * @Date: 2020-03-04 11:08:42
+ * @最后编辑: Ashely
+ * @LastEditTime: 2020-03-07 11:54:01
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '@/views/Main'
@@ -8,9 +16,16 @@ import Makeup from '@/views/Makeup'
 import Seckill from '@/views/Seckill'
 import Detail from '@/views/Detail'
 
+import Login from '@/views/Login'
+import Register from '@/views/Register'
+import Findpwd from '@/views/Findpwd'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    component: Main
+  },
   {
     path: '/index',
     component: Main
@@ -38,6 +53,18 @@ const routes = [
   {
     path: '/detail/:zq',
     component: Detail
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/register',
+    component: Register
+  },
+  {
+    path: '/findpwd',
+    component: Findpwd
   }
 ]
 

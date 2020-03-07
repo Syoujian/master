@@ -1,8 +1,6 @@
 <template>
     <div>
-        <header @click="handleBack()">
-            &lt;
-        </header>
+        <loginheader titleName="登录"></loginheader>
 
         <div class="swiper">
             <swiper :key="this.detailList.gimgitems.length">
@@ -68,12 +66,16 @@
 
 import { mapState, mapMutations, mapActions } from 'vuex'
 import swiper from '@/components/Zqswiper'
+import loginheader from '@/components/LoginHeader'
 export default {
 
   data () {
     return {
 
     }
+  },
+  components: {
+    loginheader
   },
   methods: {
     ...mapActions('detail', ['getDetailAction']),

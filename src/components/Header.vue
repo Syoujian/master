@@ -4,9 +4,10 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 15:07:54
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-04 17:42:44
+ * @LastEditTime: 2020-03-07 19:19:32
  -->
 <template>
+<!-- 导航头组件 -->
   <div class="count">
     <div class="logo">
       <a href="http://m.d1.cn/wap/index.html">
@@ -28,6 +29,8 @@
     margin-top: 10px;
   width: 100%;
   display: flex;
+  flex: 1;
+  justify-content: space-around;
   .logo {
     a {
       img {
@@ -40,6 +43,7 @@
       position: relative;
       margin-left: 5px;
       box-sizing: border-box;
+      margin-top: 2px;
       .text{
           height: 25px;
           width: 205px;
