@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-07 12:46:29
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 18:50:27
+ * @LastEditTime: 2020-03-08 03:39:33
  */
 /*
  * @说明:
@@ -18,13 +18,8 @@ const http = require('http')
 const url = require('url')
 const querystring = require('querystring')
 http.createServer((req, res) => {
-  if (req.url != '/favicon.ico') {
-    var urlObj = url.parse(req.url)
-    if (urlObj.pathname === '/myapi') {
-      // 这里是ajx请求
-      ajxManage(req, res)
-    }
-  }
+  // 这里是ajx请求
+  ajxManage(req, res)
 }).listen('83', () => {
   console.log('服务器开启成功')
 })
@@ -70,23 +65,22 @@ function zc (res, data) {
     resMsg.code = 1
     resMsg.msg = '用户注册成功！'
     userMag.push({
-      username: data.username,
-      pwd: data.pwd,
-      onoff: 0
+      user: data.username,
+      password: data.pwd
     })
   }
-  console.log(userMag)
+  // console.log(userMag,"我是注册函数的数据")
   res.write(JSON.stringify(resMsg))
   res.end()
 }
 // 登录的函数封装
 function dl (res, data) {
   let on = true
-  for (var i = 0; i < userMag.length; i++) {
+  for (let i = 0; i < userMag.length; i++) {
     const resMsg = {}
-    if (userMag[i].username =   == data.username) {
+    if (userMag[i].user === data.username) {
       on = false
-      if (userMag[i].pwd === data.pwd) {
+      if (userMag[i].password === data.pwd) {
         resMsg.code = 1
         resMsg.msg = '登录成功！'
       } else {
@@ -95,8 +89,8 @@ function dl (res, data) {
       }
       res.write(JSON.stringify(resMsg))
       res.end()
+      return
     }
-    return
   }
   if (on) {
     const resMsg = {

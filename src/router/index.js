@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 11:08:42
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 11:54:01
+ * @LastEditTime: 2020-03-07 22:54:13
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -17,6 +17,7 @@ import Seckill from '@/views/Seckill'
 import Login from '@/views/Login'
 import Register from '@/views/Register'
 import Findpwd from '@/views/Findpwd'
+import Member from '@/views/Member'
 Vue.use(VueRouter)
 
 const routes = [
@@ -59,6 +60,10 @@ const routes = [
   {
     path: '/findpwd',
     component: Findpwd
+  },
+  {
+    path: '/member',
+    component: Member
   }
 ]
 
