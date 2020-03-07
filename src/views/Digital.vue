@@ -24,7 +24,7 @@
         <!-- 商品内容 -->
         <div class="content">
             <ul>
-                <li v-for="data in digitallist.products" :key="data.p_gdsid" >
+                <li v-for="data in digitallist.products" :key="data.p_gdsid" @click="handleDetail(data.p_gdsid)">
                     <img :src="data.p_img" alt="">
                     <div class="zqtitle">
                         <p>{{data.p_gdsname}}</p>
@@ -76,6 +76,9 @@ export default {
     },
     handleSortClick (number) {
       this.getDigitalAction2(number)
+    },
+    handleDetail (id) {
+      this.$router.push(`/detail/${id}`)
     }
   },
   computed: {
