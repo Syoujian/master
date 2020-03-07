@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:39:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 00:13:27
+ * @LastEditTime: 2020-03-07 18:47:56
  -->
 <template>
   <div>
@@ -13,7 +13,7 @@
       <van-field
         class="username"
         v-model="username"
-        name="用户名"
+        name="username"
         placeholder="手机号/邮箱/用户名"
         :rules="[{ required: true, message: '请填写用户名' }]"
       />
@@ -21,7 +21,7 @@
         v-model="password"
         class="pwd"
         type="password"
-        name="密码"
+        name="pwd"
         placeholder="密码"
         :rules="[{ required: true, message: '请填写密码' }]"
       />
@@ -56,10 +56,11 @@
 </template>
 <script>
 import { mapMutations } from 'vuex'
+import axios from 'axios'
 import Vue from 'vue'
-import { Form, Field, Button } from 'vant'
+import { Form, Field, Button, Dialog } from 'vant'
 import loginheader from '@/components/LoginHeader'
-Vue.use(Form).use(Field).use(Button)
+Vue.use(Form).use(Field).use(Button).use(Dialog)
 export default {
   data () {
     return {
@@ -75,7 +76,40 @@ export default {
     ...mapMutations('myshow', ['show', 'hide']),
     ...mapMutations('myCreate', ['showCreate', 'hideCreate']),
     onSubmit (values) {
-      console.log('submit', values)
+      // console.log('submit', values)
+      axios.get(`/wxl/myapi?type=login&username=${values.username}&pwd=${values.pwd}`)
+        .then(res => {
+          console.log(res.data)
+          if (res.data.code === 0) {
+            Dialog.alert({
+              message: '该账号还未注册，点击确认去注册吧！',
+              overlay: true
+            }).then(() => {
+              this.hideCreate()
+              this.$router.push('/register')
+            })
+          }
+          if (res.data.code === 1) {
+            Dialog.alert({
+              message: '登录成功！',
+              overlay: true,
+              lockScroll: true
+            }).then(() => {
+              this.$router.push('/index')
+              //  在本地localstorage存储令牌记录状态
+              localStorage.setItem('token', JSON.stringify({ isLogin: true }))
+            })
+          }
+          if (res.data.code === 2) {
+            Dialog.alert({
+              message: '密码错误，请重新输入！',
+              overlay: true,
+              lockScroll: true
+            }).then(() => {
+              Dialog.close()
+            })
+          }
+        })
     },
 
     findPwd () {
@@ -137,7 +171,6 @@ export default {
     }
 }
 .wechat{
-    width: 100%;
     padding-left: 5%;
     background: rgb(238, 237, 237);
     padding: 5% ;

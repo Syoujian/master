@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-06 22:13:18
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 01:06:49
+ * @LastEditTime: 2020-03-07 13:46:19
  -->
 <template>
     <div >
@@ -25,8 +25,8 @@
                     placeholder="请输入新的密码"
                 />
                 <div class="err" v-if="checkNum">密码相同请重新输入</div>
-                <identify class="identify"></identify>
-                <button :class="checkNum?'errbtn':'btn'" :disabled="checkNum" @click="submit()">提交</button>
+                <identify class="identify" @xzw="getSteta"></identify>
+                <button :class="checkNum||!pwd||!newPwd||!identifyValue||state?'errbtn':'btn'" :disabled="checkNum||!pwd||!newPwd||!identifyValue||state" @click="submit()">提交</button>
         </div>
 
     </div>
@@ -38,7 +38,9 @@ export default {
   data () {
     return {
       pwd: '',
-      newPwd: ''
+      newPwd: '',
+      identifyValue: '',
+      state: ''
     }
   },
   computed: {
@@ -61,6 +63,10 @@ export default {
   methods: {
     submit () {
       console.log('修改密码')
+    },
+    getSteta (data) {
+      this.identifyValue = data.data
+      this.state = data.state
     }
   }
 

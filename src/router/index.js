@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 11:08:42
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-06 23:17:44
+ * @LastEditTime: 2020-03-07 11:54:01
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -20,6 +20,10 @@ import Findpwd from '@/views/Findpwd'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    component: Main
+  },
   {
     path: '/index',
     component: Main
