@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 01:52:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 22:44:56
+ * @LastEditTime: 2020-03-09 00:52:37
  -->
 <template>
 <!-- 页脚组件 -->
@@ -55,7 +55,16 @@ export default {
       }
     },
     goRegister () {
-      this.$router.push('/register')
+      if (localStorage.getItem('token')) {
+        Dialog.alert({
+          message: '您已经登录,请退出登录后在注册！',
+          overlay: true
+        }).then(() => {
+          Dialog.close()
+        })
+      } else {
+        this.$router.push('/register')
+      }
     }
   }
 }

@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 22:28:54
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-04 23:38:58
+ * @LastEditTime: 2020-03-09 00:53:53
  -->
 <template>
 <!-- 导航小图标组件 -->
@@ -24,7 +24,7 @@ export default {
         //   add 为图片地址  path 为路由地址 后期再改
         {
           add: 'http://images.d1.com.cn/wap/2015/03/menu201503_01_2.jpg',
-          path: '/mine'
+          path: '/member'
         },
         {
           add: 'http://images.d1.com.cn/wap/2015/03/menu201503_02_2.jpg',

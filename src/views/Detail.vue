@@ -1,7 +1,6 @@
 <template>
     <div>
-        <loginheader titleName="登录"></loginheader>
-
+        <loginheader titleName="详情页"></loginheader>
         <div class="swiper">
             <swiper :key="this.detailList.gimgitems.length">
                 <div class="swiper-slide" v-for="(data,index) in this.detailList.gimgitems" :key="index">
@@ -63,19 +62,14 @@
     </div>
 </template>
 <script>
-
 import { mapState, mapMutations, mapActions } from 'vuex'
 import swiper from '@/components/Zqswiper'
 import loginheader from '@/components/LoginHeader'
 export default {
-
   data () {
     return {
 
     }
-  },
-  components: {
-    loginheader
   },
   methods: {
     ...mapActions('detail', ['getDetailAction']),
@@ -109,7 +103,8 @@ export default {
     // this.show()
   },
   components: {
-    swiper
+    swiper,
+    loginheader
   }
 }
 </script>

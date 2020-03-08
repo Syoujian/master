@@ -1,3 +1,11 @@
+/*
+ * @说明:
+ * @版本: 2.0
+ * @姓名: As hely
+ * @Date: 2020-03-08 14:52:43
+ * @最后编辑: Ashely
+ * @LastEditTime: 2020-03-08 22:31:54
+ */
 import http from '@/util/http'
 // import axios from 'axios'
 const module = {
