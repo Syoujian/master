@@ -10,6 +10,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import digital from './module/digitalModule'
 import detail from './module/detailModule'
+import Furnituremodule from './module/Furnituremodule'
 
 import myshow from './module/IsShow'
 import myCreate from './module/IsCreate'
@@ -27,6 +28,7 @@ export default new Vuex.Store({
     digital,
     detail,
     myshow,
-    myCreate
+    myCreate,
+    Furnituremodule
   }
 })
