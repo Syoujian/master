@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-07 12:46:29
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-08 14:41:31
+ * @LastEditTime: 2020-03-08 14:46:31
  */
 /*
  * @说明:
@@ -54,7 +54,7 @@ function ajxManage (req, res) {
 // 注册的函数封装
 function zc (res, data) {
   const i = userMag.some((val) => {
-    return val.username === data.username
+    return val.user === data.username
   })
   // 返回前端的信息
   const resMsg = {}
