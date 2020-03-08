@@ -14,6 +14,8 @@ import Digital from '@/views/Digital'
 import Furniture from '@/views/Furniture'
 import Makeup from '@/views/Makeup'
 import Seckill from '@/views/Seckill'
+import Detail from '@/views/Detail'
+
 import Login from '@/views/Login'
 import Register from '@/views/Register'
 import Findpwd from '@/views/Findpwd'
@@ -48,6 +50,10 @@ const routes = [
   {
     path: '/seckill',
     component: Seckill
+  },
+  {
+    path: '/detail/:zq',
+    component: Detail
   },
   {
     path: '/login',

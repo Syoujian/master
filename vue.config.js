@@ -11,6 +11,13 @@ module.exports = {
     // 设置反向代理
     proxy: {
       // 请求哪个接口的时候才会被服务代理 target里为原网站地址
+      '/wzq': {
+        target: 'http://m.d1.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/wzq': ''
+        }
+      },
       '/xzw': {
         target: 'http://m.d1.cn',
         changeOrigin: true,
@@ -23,6 +30,13 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           '^/wxl': ''
+        }
+      },
+      '/cjl': {
+        target: 'http://m.d1.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/cjl': ''
         }
       }
     },

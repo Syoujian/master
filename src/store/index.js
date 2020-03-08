@@ -8,6 +8,10 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
+import digital from './module/digitalModule'
+import detail from './module/detailModule'
+import Furnituremodule from './module/Furnituremodule'
+
 import myshow from './module/IsShow'
 import myCreate from './module/IsCreate'
 import createPersistedState from 'vuex-persistedstate'
@@ -21,7 +25,10 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    digital,
+    detail,
     myshow,
-    myCreate
+    myCreate,
+    Furnituremodule
   }
 })
