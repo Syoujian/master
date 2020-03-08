@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 11:08:42
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 22:54:13
+ * @LastEditTime: 2020-03-08 20:51:41
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -15,6 +15,8 @@ import Furniture from '@/views/Furniture'
 import Makeup from '@/views/Makeup'
 import Seckill from '@/views/Seckill'
 import Detail from '@/views/Detail'
+
+import Search from '@/views/Search'
 
 import Login from '@/views/Login'
 import Register from '@/views/Register'
@@ -68,9 +70,13 @@ const routes = [
     component: Findpwd
   },
   {
+    path: '/search',
+    component: Search
+  }, {
     path: '/member',
     component: Member
   }
+
 ]
 
 const router = new VueRouter({
