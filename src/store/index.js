@@ -11,6 +11,8 @@ import Vuex from 'vuex'
 import digital from './module/digitalModule'
 import detail from './module/detailModule'
 import car from './module/carModule'
+import Furnituremodule from './module/Furnituremodule'
+
 import myshow from './module/IsShow'
 import myCreate from './module/IsCreate'
 import createPersistedState from 'vuex-persistedstate'
@@ -28,6 +30,7 @@ export default new Vuex.Store({
     detail,
     myshow,
     myCreate,
-    car
+    car,
+    Furnituremodule
   }
 })

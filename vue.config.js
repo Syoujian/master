@@ -31,6 +31,13 @@ module.exports = {
         pathRewrite: {
           '^/wxl': ''
         }
+      },
+      '/cjl': {
+        target: 'http://m.d1.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/cjl': ''
+        }
       }
     },
     overlay: {

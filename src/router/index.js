@@ -16,6 +16,9 @@ import Makeup from '@/views/Makeup'
 import Seckill from '@/views/Seckill'
 import Detail from '@/views/Detail'
 import Car from '@/views/Car'
+
+import Search from '@/views/Search'
+
 import Login from '@/views/Login'
 import Register from '@/views/Register'
 import Findpwd from '@/views/Findpwd'
@@ -69,6 +72,10 @@ const routes = [
   {
     path: '/car',
     component: Car
+  },
+  {
+    path: '/search',
+    component: Search
   }
 ]
 
