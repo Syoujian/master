@@ -16,6 +16,8 @@ import Makeup from '@/views/Makeup'
 import Seckill from '@/views/Seckill'
 import Detail from '@/views/Detail'
 
+import Search from '@/views/Search'
+
 import Login from '@/views/Login'
 import Register from '@/views/Register'
 import Findpwd from '@/views/Findpwd'
@@ -65,6 +67,10 @@ const routes = [
   {
     path: '/findpwd',
     component: Findpwd
+  },
+  {
+    path: '/search',
+    component: Search
   }
 ]
 

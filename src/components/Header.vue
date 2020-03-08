@@ -16,7 +16,7 @@
     </div>
     <div class="search">
       <button class="iconfont icon-search btn" @click="goSearch()" ></button>
-      <input type="text" class="text">
+      <input type="text" class="text" @focus="focu">
     </div>
     <div class="mine">
       <i class="iconfont icon-account" @click="goMIne()"></i>
@@ -81,6 +81,10 @@ export default {
     },
     goSearch () {
       console.log('去搜索页')
+      this.$router.push('/search')
+    },
+    focu () {
+      this.$router.push('/search')
     }
   }
 
