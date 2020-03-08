@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-06 22:13:18
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-08 18:21:21
+ * @LastEditTime: 2020-03-08 19:04:19
  -->
 <template>
   <!-- 修改密码组件 -->
@@ -27,6 +27,9 @@
 </template>
 <script>
 import axios from "axios";
+import Vue from 'vue';
+import { Dialog } from 'vant';
+Vue.use(Dialog);
 import identify from "@/util/Identify";
 import loginheader from "@/components/LoginHeader";
 export default {
@@ -57,11 +60,25 @@ export default {
   },
   methods: {
     submit() {
-      console.log("修改密码");
       axios.get(
-        `/wxl/myapi?type=member&user=${this.$router.state.user}&oldPwd=${this.pwd}$newPwd=${this.newPwd}`
+        `/wxl/myapi?type=amend&username=${this.$store.state.user}&oldPwd=${this.pwd}&newPwd=${this.newPwd}`
       ).then(res=>{
-        console.log(res.data);
+        // console.log(res.data);
+        if(res.data.code==2){
+          Dialog.alert({
+            message: '您的旧密码输入错误，验证失败。请输入正确的原密码'
+          }).then(() => {
+            Dialog.close()
+          });
+        }
+        if(res.data.code==1){
+          Dialog.alert({
+            message: '密码修改成功，点击确认重新登录'
+          }).then(() => {
+            localStorage.removeItem('token');
+            this.$router.push("/login");
+          });
+        }
       });
     },
     getSteta(data) {

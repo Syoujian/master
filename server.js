@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-07 12:46:29
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-08 15:37:42
+ * @LastEditTime: 2020-03-08 19:04:04
  */
 /*
  * @说明:
@@ -108,5 +108,19 @@ function dl (res, data) {
 }
 // 修改密码的函数封装
 function changePwd(res,data){
-      
+  for(var i=0;i<userMag.length;i++){
+    const resMsg = {};
+    if (userMag[i].user === data.username) {
+      if (userMag[i].password === data.oldPwd) {
+        userMag[i].password=data.newPwd
+        resMsg.code = 1
+        resMsg.msg = '修改成功！'
+      } else {
+        resMsg.code = 2
+        resMsg.msg = '旧的密码输入错误,验证失败！'
+      }
+      res.write(JSON.stringify(resMsg))
+      res.end()
+    }
+  }
 }
