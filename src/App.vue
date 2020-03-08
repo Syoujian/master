@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 11:08:42
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 17:18:15
+ * @LastEditTime: 2020-03-07 23:46:35
  -->
 <template>
   <div>
@@ -13,7 +13,10 @@
       <tabber></tabber>
     </div>
     <router-view></router-view>
-    <myfooter v-if="isshow"></myfooter>
+    <div >
+        <myfooter v-if="isshow" ></myfooter>
+    </div>
+
   </div>
 </template>
 <script>
@@ -22,6 +25,11 @@ import tabber from '@/components/Tabber'
 import myfooter from '@/components/Footer'
 import { mapState } from 'vuex'
 export default {
+  data () {
+    return {
+      n: 1
+    }
+  },
   components: {
     myheader,
     tabber,

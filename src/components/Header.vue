@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 15:07:54
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 19:19:32
+ * @LastEditTime: 2020-03-07 23:02:16
  -->
 <template>
 <!-- 导航头组件 -->
@@ -71,10 +71,13 @@
 }
 </style>
 <script>
+
 export default {
   methods: {
+
     goMIne () {
-      console.log('去我的页面')
+      // console.log('去我的页面')
+      this.$router.push('/member')
     },
     goCar () {
       console.log('去购物车')
@@ -82,7 +85,12 @@ export default {
     goSearch () {
       console.log('去搜索页')
     }
-  }
+  },
+  mounted () {
 
+  },
+  deactivated () {
+
+  }
 }
 </script>

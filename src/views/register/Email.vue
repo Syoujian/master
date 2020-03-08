@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-05 22:32:47
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 19:23:34
+ * @LastEditTime: 2020-03-08 02:28:04
  -->
 <template>
 <!-- 邮箱注册组件 -->
@@ -35,9 +35,9 @@ export default {
   data () {
     return {
       // pattern: /^1[3456789]\d{9}$/,
-      email: '',
-      pwd: '',
-      checkPwd: '',
+      email: '12@qq.com',
+      pwd: '12',
+      checkPwd: '12',
       state: '',
       // 验证码的输入框文本值
       identifyValue: ''
