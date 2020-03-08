@@ -77,7 +77,8 @@ export default {
       console.log('去我的页面')
     },
     goCar () {
-      console.log('去购物车')
+      // console.log('去购物车')
+      this.$router.push('/car')
     },
     goSearch () {
       console.log('去搜索页')

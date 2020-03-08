@@ -4,7 +4,8 @@ const module = {
   state: {
     isTabbarShow: true,
     detailList: [],
-    dnumber: 1
+    dnumber: 1,
+    goods: []
   },
   mutations: {
     show (state) {

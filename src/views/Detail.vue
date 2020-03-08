@@ -58,7 +58,7 @@
 
         <div class="shopping">
             <div class="like">收藏商品</div>
-            <div class="goshopping">加入购物车</div>
+            <div class="goshopping" @click="handleCar()">加入购物车</div>
         </div>
     </div>
 </template>
@@ -75,7 +75,8 @@ export default {
     }
   },
   components: {
-    loginheader
+    loginheader,
+    swiper
   },
   methods: {
     ...mapActions('detail', ['getDetailAction']),
@@ -91,6 +92,12 @@ export default {
     handledadd () {
       // console.log("+")
       this.add()
+    },
+    handleCar () {
+      this.detailList.amount = 1
+      this.goods.push(this.detailList)
+      this.$router.push('/car')
+      // console.log(this.goods)
     }
 
   },
@@ -103,14 +110,12 @@ export default {
 
   },
   computed: {
-    ...mapState('detail', ['detailList', 'isTabbarShow', 'dnumber'])
+    ...mapState('detail', ['detailList', 'isTabbarShow', 'dnumber', 'goods'])
   },
   destroyed () {
     // this.show()
-  },
-  components: {
-    swiper
   }
+
 }
 </script>
 <style lang="scss" scoped>
