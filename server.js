@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-07 12:46:29
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-08 14:53:05
+ * @LastEditTime: 2020-03-08 15:37:42
  */
 /*
  * @说明:
@@ -49,6 +49,10 @@ function ajxManage (req, res) {
       // 注册
       zc(res, data)
     }
+    if (data.type === 'amend') {
+      // 修改密码
+      changePwd(res, data)
+    }
   })
 }
 // 注册的函数封装
@@ -78,11 +82,12 @@ function dl (res, data) {
   let on = true
   for (let i = 0; i < userMag.length; i++) {
     const resMsg = {}
-    if (userMag[i].username === data.username) {
+    if (userMag[i].user === data.username) {
       on = false
       if (userMag[i].password === data.pwd) {
         resMsg.code = 1
         resMsg.msg = '登录成功！'
+        resMsg.user=userMag[i].user
       } else {
         resMsg.code = 2
         resMsg.msg = '密码错误！'
@@ -100,4 +105,8 @@ function dl (res, data) {
     res.write(JSON.stringify(resMsg))
     res.end()
   }
+}
+// 修改密码的函数封装
+function changePwd(res,data){
+      
 }

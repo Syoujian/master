@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-04 17:02:19
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 19:20:40
+ * @LastEditTime: 2020-03-08 17:19:55
  -->
 <template>
 <!-- 主页组件 -->
@@ -52,10 +52,11 @@ export default {
   },
   mounted () {
     axios.get('/xzw/ajax/wap/getzttm2016.jsp').then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       this.list = res.data
     })
-    this.show()
+    this.show();
+    
   },
   components: {
     maplist,

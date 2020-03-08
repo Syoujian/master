@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:39:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-08 02:27:36
+ * @LastEditTime: 2020-03-08 17:19:12
  -->
 <template>
 <!-- 登录组件 -->
@@ -56,7 +56,7 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations,mapState} from 'vuex'
 import axios from 'axios'
 import Vue from 'vue'
 import { Form, Field, Button, Dialog } from 'vant'
@@ -74,6 +74,7 @@ export default {
     this.hide()
   },
   methods: {
+    // ...mapMutations("myuser",["save"]),
     ...mapMutations('myshow', ['show', 'hide']),
     ...mapMutations('myCreate', ['showCreate', 'hideCreate']),
     onSubmit (values) {
@@ -98,7 +99,8 @@ export default {
             }).then(() => {
               this.$router.push('/index')
               //  在本地localstorage存储令牌记录状态
-              // console.log(res.data.username);
+              // 在vuex中保存出此次登录的用户名
+              this.$store.commit("save",res.data.user)
               localStorage.setItem('token', JSON.stringify({ isLogin: true }))
             })
           }
@@ -139,7 +141,7 @@ export default {
     }
   },
   computed: {
-
+    ...mapState("myuser",["user"])
   },
   deactivated () {
     this.show()

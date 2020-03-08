@@ -4,7 +4,7 @@
  * @姓名: As hely
  * @Date: 2020-03-07 22:46:54
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-08 03:27:22
+ * @LastEditTime: 2020-03-08 18:18:39
  -->
 <template>
   <div>
@@ -15,7 +15,7 @@
           <img src="../../public/img/member.jpg" />
         </div>
         <div class="right">
-          <p>尊敬的会员：377185344@qq.com</p>
+          <p>尊敬的会员：{{$store.state.user}}</p>
           <p>会员等级：普通会员</p>
           <p>剩余积分：0</p>
         </div>
@@ -38,10 +38,10 @@
             <img src="http://images.d1.com.cn/wap/2014/03.png" />
             <p>退出登录</p>
           </li>
-          <router-link tag="li" to="">
+          <li @click="changePwd()">
             <img src="http://images.d1.com.cn/wap/2014/05.png" />
             <p>修改密码</p>
-          </router-link>
+          </li>
           <router-link tag="li" to="">
             <img src="http://images.d1.com.cn/wap/2014/06.png" />
             <p>积分商城</p>
@@ -53,6 +53,7 @@
   </div>
 </template>
 <script>
+import axios from "axios"
 import myfooter from '@/components/Footer'
 import { mapMutations } from 'vuex'
 import Vue from 'vue'
@@ -64,6 +65,20 @@ export default {
     return {
 
     }
+  },
+  beforeRouteEnter (to, from, next) {
+      if(localStorage.getItem("token")){
+        next();
+      }else{
+        Dialog.confirm({
+        message: '您还未登录，点击确认去登陆吧！'
+      }).then(() => {
+        // on confirm
+        next("/login")
+      }).catch(() => {
+        Dialog.close()
+      })
+      }
   },
   components: {
     loginHeader,
@@ -81,11 +96,15 @@ export default {
       }).catch(() => {
         Dialog.close()
       })
+    },
+    changePwd(){
+      console.log("修改密码");
+      // axios.get(`/wxl/myapi?type=member&user`)
+      this.$router.push("/findpwd");
     }
   },
   mounted () {
     this.hide()
-    //  axios.get(`/wxl/myapi?type=member&user`)
   },
   deactivated () {
     this.show()
