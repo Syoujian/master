@@ -4,14 +4,14 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 01:52:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-05 11:33:06
+ * @LastEditTime: 2020-03-07 22:44:56
  -->
 <template>
 <!-- 页脚组件 -->
     <div>
         <div class="top">
-            <router-link tag="span" to="/login" >请登录</router-link>
-            <router-link tag="span" to="" >注册</router-link>
+            <span @click="goLogin()">登录</span>
+            <span @click="goRegister()">注册</span>
             <span @click="goTop()">回到顶部</span>
         </div>
         <div class="down">
@@ -22,6 +22,9 @@
     </div>
 </template>
 <script>
+import Vue from 'vue'
+import { Dialog } from 'vant'
+Vue.use(Dialog)
 export default {
   methods: {
     goTop () {
@@ -38,6 +41,21 @@ export default {
       } else {
         document.documentElement.scrollTop = 0
       }
+    },
+    goLogin () {
+      if (localStorage.getItem('token')) {
+        Dialog.alert({
+          message: '您已经登录！',
+          overlay: true
+        }).then(() => {
+          Dialog.close()
+        })
+      } else {
+        this.$router.push('/login')
+      }
+    },
+    goRegister () {
+      this.$router.push('/register')
     }
   }
 }

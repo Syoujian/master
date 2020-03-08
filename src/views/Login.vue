@@ -4,7 +4,7 @@
  * @姓名: Ashely
  * @Date: 2020-03-05 10:39:36
  * @最后编辑: Ashely
- * @LastEditTime: 2020-03-07 19:20:29
+ * @LastEditTime: 2020-03-08 17:19:12
  -->
 <template>
 <!-- 登录组件 -->
@@ -19,7 +19,7 @@
         :rules="[{ required: true, message: '请填写用户名' }]"
       />
       <van-field
-        v-model="password"
+        v-model="pwd"
         class="pwd"
         type="password"
         name="pwd"
@@ -56,7 +56,7 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import axios from 'axios'
 import Vue from 'vue'
 import { Form, Field, Button, Dialog } from 'vant'
@@ -66,7 +66,7 @@ export default {
   data () {
     return {
       username: '',
-      password: '',
+      pwd: '',
       state: true
     }
   },
@@ -74,6 +74,7 @@ export default {
     this.hide()
   },
   methods: {
+    // ...mapMutations("myuser",["save"]),
     ...mapMutations('myshow', ['show', 'hide']),
     ...mapMutations('myCreate', ['showCreate', 'hideCreate']),
     onSubmit (values) {
@@ -98,6 +99,8 @@ export default {
             }).then(() => {
               this.$router.push('/index')
               //  在本地localstorage存储令牌记录状态
+              // 在vuex中保存出此次登录的用户名
+              this.$store.commit('save', res.data.user)
               localStorage.setItem('token', JSON.stringify({ isLogin: true }))
             })
           }
@@ -115,10 +118,20 @@ export default {
 
     findPwd () {
       // console.log('找回密码')
-      this.$router.push('/findpwd')
+      if (localStorage.getItem('token')) {
+        this.$router.push('/findpwd')
+      } else {
+        Dialog.alert({
+          message: '您还未登录不能进行此项操作！',
+          overlay: true
+        }).then(() => {
+          Dialog.close()
+        })
+      }
     },
     goRegister (data) {
       // console.log(data);
+
       if (data) {
         this.showCreate()
       } else {
@@ -128,7 +141,7 @@ export default {
     }
   },
   computed: {
-
+    ...mapState('myuser', ['user'])
   },
   deactivated () {
     this.show()
